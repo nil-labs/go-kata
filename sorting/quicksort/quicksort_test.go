@@ -1,7 +1,6 @@
 package quicksort
 
 import (
-	"fmt"
 	"reflect"
 	"testing"
 )
@@ -32,7 +31,7 @@ func Test_sort(t *testing.T) {
 		t.Run(tt.name, func(t *testing.T) {
 			sort(tt.args.arr, tt.args.low, tt.args.high)
 			if !reflect.DeepEqual(tt.args.arr, tt.args.expect) {
-				t.Error(fmt.Sprintf("expecting array %v to have order %v", tt.args.arr, tt.args.expect))
+				t.Errorf("expecting array %v to have order %v", tt.args.arr, tt.args.expect)
 			}
 		})
 	}

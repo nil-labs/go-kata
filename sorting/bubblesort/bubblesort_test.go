@@ -1,7 +1,6 @@
 package bubblesort
 
 import (
-	"fmt"
 	"reflect"
 	"testing"
 )
@@ -25,7 +24,7 @@ func Test_sort(t *testing.T) {
 		t.Run(tt.name, func(t *testing.T) {
 			sort(tt.unsorted)
 			if !reflect.DeepEqual(tt.unsorted, tt.sorted) {
-				t.Error(fmt.Sprintf("expecting array %v to have order %v", tt.unsorted, tt.sorted))
+				t.Errorf("expecting array %v to have order %v", tt.unsorted, tt.sorted)
 			}
 		})
 	}

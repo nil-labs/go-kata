@@ -12,19 +12,21 @@
 package quicksort
 
 func sort(arr []int, low, high int) {
+
 	if low < high {
 		pivot := partition(arr, low, high)
 		sort(arr, low, pivot-1)
 		sort(arr, pivot+1, high)
 	}
 }
+
 func partition(arr []int, low, high int) int {
 	pivot := arr[high]
 	i := low
-	for j := low; j < high; j++ {
+	for j := low; j < len(arr); j++ {
 		if arr[j] < pivot {
-			arr[i], arr[j] = arr[j], arr[i]
-			i = i + 1
+			arr[j], arr[i] = arr[i], arr[j]
+			i++
 		}
 	}
 	arr[i], arr[high] = arr[high], arr[i]
